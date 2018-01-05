@@ -1,4 +1,4 @@
-# jQuery Live SEO Preview Plugin
+# jQuery SEO Preview Plugin
 
 The jQuery SEO Preview Plugin is a simple plugin that allows you to preview meta tag data in a styled Google, Facebook and other social link previews. You can bind the preview to inputs to get live preview while editing perfect for blog and CMS applications.
 
@@ -32,9 +32,12 @@ You can also bind inputs to get live preview updates on change.
       }
     });
 
+Add `div` where you want preview to appear.
+
+    <div id="seopreview"></div>
+
 With the HTML form inputs on your page:
 
     <input type="text" id="meta-title" />
     <input type="text" id="meta-url" />
     <textarea id="meta-desc"></textarea>
-    <div id="seopreview"></div>
