@@ -12,7 +12,8 @@
  *
 */
 
-/*global jQuery */ // jslint.com
+/*global jQuery */
+
 /* Property Directives
     attr, author, base_domain, date, desc, desc_limit, each, extend, facebook,
     featured_image, find, fn, getDate, getFullYear, getMonth, google, html,
