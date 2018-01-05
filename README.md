@@ -1,4 +1,4 @@
-# jQuery SEO Live Preview
+# jQuery SEO Live-Edit Preview
 
 ##### Version 1.0.0
 
@@ -79,7 +79,7 @@ With the HTML form inputs on your page:
 ### Dependencies
 
 *   jQuery Core 2.2.4 or higher must be loaded
-*   CSS Cleanslate * Inluded renamed as `.md-js-cleanslate`
+*   CSS Cleanslate * Inluded renamed as **.md-js-cleanslate**
 
 * * *
 
