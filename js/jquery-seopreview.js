@@ -79,7 +79,7 @@
                     $(document).on("keyup", value, function (event) {
                         event.preventDefault();
                         character_limit = parseInt($(document).find(value).attr("data-md-limit"));
-                        $(document).find("span#md-google-" + index).text(truncate(value.val(), character_limit));
+                        $(document).find("span#" + main_class + "__google-" + index).text(truncate(value.val(), character_limit));
                     });
                 }
             }
@@ -110,6 +110,9 @@
             metaDesc = settings.metadata.desc.val();
         }
 
+        // CSS Class
+        var main_class = "md-js-seo-preview";
+
         // Option: Google Date
         var google_date = "";
         if (settings.google.date === true) {
@@ -119,27 +122,27 @@
             var month = d.getMonth();
             var year = d.getFullYear();
             var today = months[month] + " " + date + ", " + year;
-            google_date = "<span id='md-js-seo-preview__google-date'>" + today + " - </span>";
+            google_date = "<span id='" + main_class + "__google-date'>" + today + " - </span>";
         }
 
         // Show Styled or Unstyled
         var theme_class = "";
         if (settings.styled === true) {
-            theme_class = "md-js-seo-preview__theme";
+            theme_class = "" + main_class + "__theme";
         }
         // Option: Google Label
         var google_label = "";
         if (settings.google.label === true) {
-            google_label = "<small id='md-js-seo-preview__google-label'>" + settings.google.label_text + "</small>";
+            google_label = "<small id='" + main_class + "__google-label'>" + settings.google.label_text + "</small>";
         }
 
         // Make: Output HTML
         var preview_box = "";
-        preview_box += "<div id='md-js-seo-preview' class='md-js-cleanslate " + theme_class + "''>";
-        preview_box += "<div id='md-js-seo-preview__google-inner'>";
-        preview_box += "<span id='md-js-seo-preview__google-title'>" + truncate(metaTitle, settings.google.title_limit) + "</span>";
-        preview_box += "<span id='md-js-seo-preview__google-url'>" + truncate(metaURL, settings.google.url_limit) + "</span>";
-        preview_box += "<span id='md-js-seo-preview__google-desc'>" + google_date + truncate(metaDesc, settings.google.desc_limit) + "</span>";
+        preview_box += "<div id='" + main_class + "' class='md-js-cleanslate " + theme_class + "''>";
+        preview_box += "<div id='" + main_class + "__google-inner'>";
+        preview_box += "<span id='" + main_class + "__google-title'>" + truncate(metaTitle, settings.google.title_limit) + "</span>";
+        preview_box += "<span id='" + main_class + "__google-url'>" + truncate(metaURL, settings.google.url_limit) + "</span>";
+        preview_box += "<span id='" + main_class + "__google-desc'>" + google_date + truncate(metaDesc, settings.google.desc_limit) + "</span>";
 
         if (settings.google.label === true) {
             preview_box += google_label;
