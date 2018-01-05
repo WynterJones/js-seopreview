@@ -21,7 +21,7 @@
             }
         }
 
-        // 
+        // Truncate Character Limit - from: https://stackoverflow.com/questions/1199352/smart-way-to-shorten-long-strings-with-javascript
         function truncate(str, limit) {
             return (str.length < limit) ? str : str.substring(0, limit) + ' ...';
         }
