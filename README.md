@@ -78,8 +78,8 @@ With the HTML form inputs on your page:
 
 ### Dependencies
 
-*   jQuery must be loaded
-*   CSS Cleanslate (inluded)
+*   jQuery Core 2.2.4 or higher must be loaded
+*   CSS Cleanslate * Inluded renamed as `.md-js-cleanslate`
 
 * * *
 
