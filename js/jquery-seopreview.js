@@ -2,12 +2,14 @@
  * jQuery SEO Live Preview
  * https://github.com/monetizedesign/js-seopreview
  *
+ * A simple plugin that allows you to preview meta tag data in a styled Google and Facebook link preview.
+ *
  * Copyright 2018, Wynter Jones
  * https://www.monetizedesign.com/
  *
  * Licensed under the MIT license:
  * https://opensource.org/licenses/MIT
- */
+*/
 
 (function($) {
 
