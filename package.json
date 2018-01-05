@@ -1,0 +1,29 @@
+{
+  "name": "js-seopreview",
+  "version": "1.0.0",
+  "description": "A simple plugin that allows you to preview meta tag data in a styled Google and Facebook link preview. You can bind the preview to inputs to get live preview while editing perfect for blog and CMS applications.",
+  "main": "js/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://monetizedesign@github.com/monetizedesign/js-seopreview.git"
+  },
+  "keywords": [
+    "jquery",
+    "seo",
+    "preview",
+    "seo",
+    "live",
+    "preview",
+    "link",
+    "preview"
+  ],
+  "author": "MonetizeDesign",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/monetizedesign/js-seopreview/issues"
+  },
+  "homepage": "https://github.com/monetizedesign/js-seopreview"
+}

@@ -1,3 +1,14 @@
+/*
+ * jQuery SEO Live Preview
+ * https://github.com/monetizedesign/js-seopreview
+ *
+ * Copyright 2018, Wynter Jones
+ * https://www.monetizedesign.com/
+ *
+ * Licensed under the MIT license:
+ * https://opensource.org/licenses/MIT
+ */
+
 (function($) {
 
     $.fn.seoPreview = function(options) {
