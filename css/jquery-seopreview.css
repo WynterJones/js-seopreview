@@ -16,47 +16,26 @@
 *       all styles must include: !important - also using > for better specificity.
 */
 
-div#md-js-seo-preview.md-js-seo-preview__theme {
+div#js-seo-preview {
   display: flex !important;
   -webkit-flex-direction: column !important;
   -ms-flex-direction: column !important;
   flex-direction: column !important;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
-  background-color: #FFFFFF !important;
-  border-radius: 4px !important;
-  border: 1px solid #DAE1E9 !important;
-  padding: 1rem !important;
   margin: 1rem 0 !important;
-  position: relative !important;
-  text-rendering: auto !important;
-  overflow: hidden !important;
   -moz-osx-font-smoothing: auto !important;
   -webkit-font-smoothing: auto !important;
 }
 
-div#md-js-seo-preview > div#md-js-seo-preview__google-inner {
+/* Google */
+/* Last Updated: January 2018 */
+
+div#js-seo-preview > div#js-seo-preview__google-inner {
   max-width: 600px !important;
   line-height: 18.2px !important;
+  margin-bottom: 1rem !important;
 }
 
-/* Last Updated: CSS Styles from Google on January 2018 */
-
-div#md-js-seo-preview.md-js-cleanslate > div#md-js-seo-preview__google-inner > small#md-js-seo-preview__google-label {
-  font-size: 8px !important;
-  font-weight: bold !important;
-  background: rgba(0, 0, 0, 0.03) !important;
-  position: absolute !important;
-  top: 0 !important;
-  right: 1rem !important;
-  padding: 0.4rem 0.8rem !important;
-  color: #999 !important;
-  border-bottom-left-radius: 3px !important;
-  border-bottom-right-radius: 3px !important;
-  text-transform: uppercase !important;
-  font-family: arial, sans-serif !important;
-}
-
-div#md-js-seo-preview.md-js-cleanslate > div#md-js-seo-preview__google-inner > span#md-js-seo-preview__google-title {
+div#js-seo-preview.md-js-cleanslate > div#js-seo-preview__google-inner > span#js-seo-preview__google-title {
   display: block !important;
   color: rgb(26, 13, 171) !important;
   font-family: arial, sans-serif !important;
@@ -72,7 +51,7 @@ div#md-js-seo-preview.md-js-cleanslate > div#md-js-seo-preview__google-inner > s
   margin-bottom: 1px !important;
 }
 
-div#md-js-seo-preview.md-js-cleanslate > div#md-js-seo-preview__google-inner > span#md-js-seo-preview__google-url {
+div#js-seo-preview.md-js-cleanslate > div#js-seo-preview__google-inner > span#js-seo-preview__google-url {
   display: block !important;
   color: rgb(0, 102, 33) !important;
   font-family: arial, sans-serif !important;
@@ -86,7 +65,7 @@ div#md-js-seo-preview.md-js-cleanslate > div#md-js-seo-preview__google-inner > s
   width: auto !important;
 }
 
-div#md-js-seo-preview.md-js-cleanslate > div#md-js-seo-preview__google-inner > span#md-js-seo-preview__google-desc {
+div#js-seo-preview.md-js-cleanslate > div#js-seo-preview__google-inner > span#js-seo-preview__google-desc {
   display: block !important;
   color: #545454 !important;
   font-family: arial, sans-serif !important;
@@ -102,9 +81,74 @@ div#md-js-seo-preview.md-js-cleanslate > div#md-js-seo-preview__google-inner > s
   text-overflow: ellipsis !important;
 }
 
-div#md-js-seo-preview.md-js-cleanslate > div#md-js-seo-preview__google-inner > span#md-js-seo-preview__google-desc > span#md-js-seo-preview__google-date {
+div#js-seo-preview.md-js-cleanslate > div#js-seo-preview__google-inner > span#js-seo-preview__google-desc > span#js-seo-preview__google-date {
   color: #808080 !important;
 }
+
+/* Facebook */
+/* Last Updated: January 2018 */
+
+div#js-seo-preview > div#js-seo-preview__facebook-inner {
+  max-width: 526px !important;
+  line-height: 16.08px !important;
+  font-family:Helvetica, Arial, sans-serif !important;
+  font-size: 12px !important;
+  color: #1d2129 !important;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .15) inset, 0 1px 4px rgba(0, 0, 0, .1) !important;
+  background-color: #fff !important;
+  overflow: hidden !important;
+  position: relative !important;
+  z-index: 0 !important;
+  margin-bottom: 1rem !important;
+}
+
+div#js-seo-preview.md-js-cleanslate > div#js-seo-preview__facebook-inner > img#js-seo-preview__facebook-image {
+  width: 100% !important;
+  max-height: 315px !important;
+}
+
+div#js-seo-preview.md-js-cleanslate > div#js-seo-preview__facebook-inner > div#js-seo-preview__facebook-inner-text {
+  padding: 10px 12px !important;
+}
+
+div#js-seo-preview.md-js-cleanslate > div#js-seo-preview__facebook-inner > div#js-seo-preview__facebook-inner-text > span#js-seo-preview__facebook-title {
+  max-width: max-content !important;
+  text-decoration: none !important;
+    transition: color .1s ease-in-out !important;
+    font-family: Georgia, serif !important;
+    font-size: 18px !important;
+    display: block !important;
+    line-height: 22px !important;
+  width: auto !important;
+  margin-bottom: 5px !important;
+}
+
+div#js-seo-preview.md-js-cleanslate > div#js-seo-preview__facebook-inner > div#js-seo-preview__facebook-inner-text > span#js-seo-preview__facebook-url {
+  max-width: max-content !important;
+  text-decoration: none !important;
+    transition: color .1s ease-in-out !important;
+    font-size: 11px !important;
+    display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  padding-top: 9px !important;
+  line-height: 11px !important;
+  text-transform: uppercase !important;
+  color: #90949c !important;
+}
+
+div#js-seo-preview.md-js-cleanslate > div#js-seo-preview__facebook-inner > div#js-seo-preview__facebook-inner-text > span#js-seo-preview__facebook-desc {
+  max-width: max-content !important;
+   max-width: max-content !important;
+  text-decoration: none !important;
+    transition: color .1s ease-in-out !important;
+    font-size: 12px !important;
+    display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+    max-height: 80px !important;
+}
+
 
 /**************************************************/
 

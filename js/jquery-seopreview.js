@@ -14,14 +14,6 @@
 
 /*global jQuery */
 
-/* Property Directives
-    attr, author, base_domain, date, desc, desc_limit, each, extend, facebook,
-    featured_image, find, fn, getDate, getFullYear, getMonth, google, html,
-    label, label_text, length, metadata, nodeName, on, preventDefault,
-    seoPreview, styled, substring, tabs, text, title, title_limit, type, url,
-    url_limit, use_slug, val
-*/
-
 (function ($) {
     "use strict";
 
@@ -30,46 +22,39 @@
         // Options
         var settings = $.extend({
             metadata: {
-                base_domain: "",
-                use_slug: false,
-                title: "MonetizeDesign - jQuery Plugin - jQuery SEO Live Preview Plugin",
-                url: "https://monetizedesign.github.io/js-seopreview/",
-                desc: "The jQuery SEO Preview Plugin is a simple plugin that allows you to prdfeview meta tag data in a styled Google, Facebook and other social link previews. You can bind the preview to inputs to get live preview while editing perfect for blog and CMS applications."
+                title: "MonetizeDesign - SEO Live Preview jQuery Plugin",
+                desc: "The jQuery SEO Preview Plugin is a simple plugin that allows you to preview meta tag data in a styled Google and Facebook link preview. You can bind the preview to inputs for live editing perfect for blog and CMS applications when you need to edit social meta data.",
+                url: {
+                    full_url: "https://monetizedesign.github.io/js-seopreview/",
+                    use_slug: false,
+                    base_domain: "",
+                    auto_dash: true
+                }
             },
             google: {
-                label: true,
-                label_text: "Google-view",
-                date: true,
-                title_limit: 60,
-                url_limit: 72,
-                desc_limit: 300
+                date: true
             },
             facebook: {
-                label: true,
-                label_text: "Facebook-view",
-                author: "",
                 featured_image: ""
-            },
-            styled: true,
-            tabs: true
+            }
         }, options);
 
-        // CSS Class
-        var main_class = "md-js-seo-preview";
-
         // Function: Turncate Meta Data
-        function truncate(str, limit) {
-            if (str.length < limit) {
-                var truncated_text = str.substring(0, limit);
+        function truncate(original_text, limit) {
+            var truncated_text = original_text;
+            if (original_text.length > limit) {
+                truncated_text = original_text.substring(0, limit);
                 truncated_text = truncated_text + " ...";
             }
-            return str;
+            return truncated_text;
         }
 
         // Function: Check if <input type="text"> or <textarea>
         function isInput(option) {
-            if ((option[0].nodeName === "INPUT" && option[0].type === "text") || option[0].nodeName === "TEXTAREA") {
-                return true;
+            if (option) {
+                if ((option[0].nodeName === "INPUT" && option[0].type === "text") || option[0].nodeName === "TEXTAREA") {
+                    return true;
+                }
             }
         }
 
@@ -83,78 +68,137 @@
             return months[month] + " " + date + ", " + year;
         }
 
-        // Bind Each <input> <textarea> on Keyup
-        $.each(settings.metadata, function (index, value) {
-            if (value[0]) {
-                if (value[0].type === "text" || value[0].type === "textarea") {
-                    var character_limit = "";
-                    if (index === "title") {
-                        character_limit = settings.google.title_limit;
-                    } else if (index === "url") {
-                        character_limit = settings.google.url_limit;
-                    } else if (index === "desc") {
-                        character_limit = settings.google.desc_limit;
-                    }
-                    $(document).find(value).attr("data-md-limit", character_limit);
-                    $(document).on("keyup", value, function (event) {
-                        event.preventDefault();
-                        character_limit = parseInt($(document).find(value).attr("data-md-limit"));
-                        $(document).find("span#" + main_class + "__google-" + index).text(truncate(value.val(), character_limit));
-                    });
-                }
+        // Function: Get HostName for Facebook URL Preview
+        function get_hostname(url) {
+            var match = url.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i);
+            if ( match != null && match.length > 2 && typeof match[2] === 'string' && match[2].length > 0 ) {
+                return match[2];
+            } else {
+                return url;
             }
-        });
+        }
 
-        // Set Meta Title Default
+        // Set Meta Title
         var metaTitle = settings.metadata.title;
         if (isInput(settings.metadata.title)) {
             metaTitle = settings.metadata.title.val();
         }
 
-        // Set Meta Meta URL Default
-        var metaURL = settings.metadata.url;
-        if (isInput(settings.metadata.url)) {
-            metaURL = settings.metadata.url.val();
+        // Set Meta Meta URL
+        var metaURL = settings.metadata.url.full_url;
+        if (isInput(settings.metadata.url.full_url)) {
+            metaURL = settings.metadata.url.full_url.val();
         }
 
-        // Set Meta Description Default
-        var metaDesc = settings.metadata.title;
+        // Set Meta Description
+        var metaDesc = settings.metadata.desc;
         if (isInput(settings.metadata.desc)) {
             metaDesc = settings.metadata.desc.val();
+        }
+
+        // Set Featured Image
+        var metaImage = settings.facebook.featured_image;
+        if (isInput(settings.facebook.featured_image)) {
+            metaImage = settings.facebook.featured_image.val();
         }
 
         // Option: Google Date
         var google_date;
         if (settings.google.date === true) {
-            google_date = "<span id='" + main_class + "__google-date'>" + todaysDate() + " - </span>";
+            google_date = "<span id='js-seo-preview__google-date'>" + todaysDate() + " - </span>";
         }
 
-        // Show Styled or Unstyled
-        var theme_class;
-        if (settings.styled === true) {
-            theme_class = "" + main_class + "__theme";
-        }
-        // Option: Google Label
-        var google_label;
-        if (settings.google.label === true && theme_class !== "") {
-            google_label = "<small id='" + main_class + "__google-label'>" + settings.google.label_text + "</small>";
-        }
+        // Bind for Title, Desc <input> <textarea> on Keyup
+        $.each(settings.metadata, function (index, value) {
+            if (value[0] && (value[0].type === "text" || value[0].type === "textarea")) {
+                var character_limit = "";
+                if (index === "title") {
+                    character_limit = 65;
+                } else if (index === "desc") {
+                    character_limit = 300;
+                }
+                $(document).on("keyup", value, function () {
+                    $(document).find("span#js-seo-preview__google-" + index).text(truncate(value.val(), character_limit));
+                    $(document).find("span#js-seo-preview__facebook-" + index).text(truncate(value.val(), 300));
+                });
+            }
+        });
 
-        // Make: Output HTML
-        var preview_box = "";
-        preview_box += "<div id='" + main_class + "' class='md-js-cleanslate " + theme_class + "''>";
-        preview_box += "<div id='" + main_class + "__google-inner'>";
-        preview_box += "<span id='" + main_class + "__google-title'>" + truncate(metaTitle, settings.google.title_limit) + "</span>";
-        preview_box += "<span id='" + main_class + "__google-url'>" + truncate(metaURL, settings.google.url_limit) + "</span>";
-        preview_box += "<span id='" + main_class + "__google-desc'>" + google_date + truncate(metaDesc, settings.google.desc_limit) + "</span>";
+        // Bind for URL or Slug w/ Base Domain <input> <textarea> on Keyup
+        $.each(settings.metadata.url, function (index, value) {
+            if (value[0] && (value[0].type === "text" || value[0].type === "textarea")) {
+                var character_limit = 72;
+                $(document).on("keyup", value, function () {
+                    var input_value = index; // to stop JSlint 'index' not used
+                    if (settings.metadata.url.auto_dash === false) {
+                        input_value = value.val();
+                    } else {
+                        input_value = value.val().replace(/[^A-Za-z0-9 :/ . -]/g, "").replace(/\s{2,}/g," ").replace(/\s+/g, "-").toLowerCase();
+                        value.val(input_value);
+                    }
+                    var output_url = truncate(input_value, character_limit);
+                    if (settings.metadata.url.use_slug === true) {
+                        output_url = truncate(settings.metadata.url.base_domain + input_value, character_limit);
+                    }
+                    $(document).find("span#js-seo-preview__google-url").text(output_url);
+                    $(document).find("span#js-seo-preview__facebook-url").text(get_hostname(output_url));
+                });
+            }
+        });
 
-        if (settings.google.label === true) {
-            preview_box += google_label;
+        // Bind for URL or Slug w/ Base Domain <input> <textarea> on Keyup
+        $.each(settings.facebook.featured_image, function (index, value) {
+            if (value && (value.type === "text" || value.type === "textarea")) {                
+                $(document).on("keyup", value, function () {
+                    if ($(document).find(value).val() !== null && $(document).find(value).val().trim() !== "") {
+                        $(document).find("img#js-seo-preview__facebook-image").attr('src', $(document).find(value).val());
+                        $(document).find("img#js-seo-preview__facebook-image").attr('style', 'display: block !important');
+                    } else {
+                        $(document).find("img#js-seo-preview__facebook-image").attr('style', 'display: none !important');
+                    }
+                 });
+            }
+        });
+
+        // Make: Google Output HTML
+        var google_box = "";
+        google_box += "<div id='js-seo-preview__google-inner'>";
+        google_box += "<span id='js-seo-preview__google-title'>" + truncate(metaTitle, 65) + "</span>";
+        if (settings.metadata.url.use_slug === true) {
+            google_box += "<span id='js-seo-preview__google-url'>" + truncate(settings.metadata.url.base_domain + metaURL, 72) + "</span>";
+        } else {
+            google_box += "<span id='js-seo-preview__google-url'>" + truncate(metaURL, 72) + "</span>";
         }
-        preview_box += "</div></div>";
+        google_box += "<span id='js-seo-preview__google-desc'>" + google_date + truncate(metaDesc, 300) + "</span>";
+        google_box += "</div>";
+
+
+        // Make: Facebook Output HTML
+        var facebook_box = "";
+        facebook_box += "<div id='js-seo-preview__facebook-inner'>";
+        if (metaImage) {
+            facebook_box += "<img src='" + metaImage + "' id='js-seo-preview__facebook-image' />";
+        }
+        
+        facebook_box += "<div id='js-seo-preview__facebook-inner-text'>";
+        facebook_box += "<span id='js-seo-preview__facebook-title'>" + truncate(metaTitle, 200) + "</span>";
+        facebook_box += "<span id='js-seo-preview__facebook-desc'>" + truncate(metaDesc, 300) + "</span>";
+        if (settings.metadata.url.use_slug === true) {
+            facebook_box += "<span id='js-seo-preview__facebook-url'>" + truncate(settings.metadata.url.base_domain + metaURL, 72) + "</span>";
+        } else {
+            facebook_box += "<span id='js-seo-preview__facebook-url'>" + get_hostname(metaURL) + "</span>";
+        }
+        facebook_box += "</div></div>";
+
+        // Make: Final HTML Output
+        var output = "";
+        output = "<div id='js-seo-preview' class='md-js-cleanslate'>";
+        output += google_box;
+        output += facebook_box;
+        output += "</div>";
 
         // Add Preview to Page
-        return this.html(preview_box);
+        return this.html(output);
 
     };
 

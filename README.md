@@ -2,9 +2,11 @@
 
 ##### Version 1.0.0
 
-The jQuery SEO Preview Plugin is a simple plugin that allows you to preview meta tag data in a styled Google and Facebook link preview. You can bind the preview to inputs to get live preview while editing perfect for blog and CMS applications.
+The jQuery SEO Preview Plugin is a simple plugin that allows you to preview meta tag data in a styled Google and Facebook link preview. You can bind the preview to inputs for live editing perfect for blog and CMS applications when you need to edit social meta data.
 
-[View Demo & Preview](https://www.monetizedesign.com/jquery-seopreview-plugin)
+View on Github: [https://monetizedesign.github.io/js-seopreview/](https://monetizedesign.github.io/js-seopreview/)
+
+[Star](https://github.com/monetizedesign/js-seopreview)
 
 * * *
 
@@ -31,50 +33,67 @@ You can also bind inputs to get live preview updates on change.
     $(".seopreview").seoPreview({
       metadata: {
         title: $('#meta-title'),
-        url: $('#meta-url'),
-        desc: $('#meta-desc')
+        desc: $('#meta-desc'),
+        url: {
+          full_url: $('#meta-url')
+        }
+      },
+      facebook: {
+          featured_image: $('#meta-featured-image')
       }
     });
 
-You can also bind inputs to get live preview updates on change.
+_You can also use static data instead of passing jQuery DOM elements._
 
 #### Advanced
 
-    $(".seopreview").seoPreview({
+    $("#seopreview").seoPreview({
       metadata: {
-        base_domain: '',
-        use_slug: false,
-        title: $('#meta-title'),
-        url: $('#meta-url'),
-        desc: $('#meta-desc')
+          title: "MonetizeDesign - SEO Live Preview jQuery Plugin",
+          desc: "The jQuery SEO Preview Plugin is a simple plugin that allows you to preview meta tag data in a styled Google and Facebook link preview. You can bind the preview to inputs for live editing perfect for blog and CMS applications when you need to edit social meta data.",
+          url: {
+              full_url: "https://monetizedesign.github.io/js-seopreview/",
+              use_slug: false,
+              base_domain: "",
+              auto_dash: true
+          }
       },
       google: {
-          label: true,
-          label_text: 'Google Preview',
-          date: true,
-          title_limit: 60,
-          url_limit: 72,
-          desc_limit: 300
+          date: true
       },
       facebook: {
-          label: true,
-          label_text: 'Facebook Preview',
-          author: '',
-          featured_image: ''
-      },
-      styled: true,
-      tabs: true
+          featured_image: "http://via.placeholder.com/600x315"
+      }
     });
 
-Add `div` where you want preview to appear.
+* * *
+
+#### Add to Your Page
+
+Add a `div` where you want preview to appear.
 
     <div id="seopreview"></div>
 
-With the HTML form inputs on your page:
+Add HTML form inputs on your page for live editing.
 
     <input type="text" id="meta-title" />
     <input type="text" id="meta-url" />
     <textarea id="meta-desc"></textarea>
+    <input type="text" id="meta-featured-image" />
+
+* * *
+
+#### Options
+
+Explanation of the options available.
+
+*   `use_slug` - If **true** it will override the `full_url` and use the `base_domain`.
+
+*   `auto_dash` - Default is **true** and it will clean and format the entered URL.
+
+*   `google.date` - Default is **true** and it will show the current date in Google description.
+
+**Note:** Character limits for the title, url and description are hard-coded into the plugin using the latest max length.
 
 ### Dependencies
 
