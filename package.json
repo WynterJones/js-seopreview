@@ -1,6 +1,6 @@
 {
   "name": "js-seopreview",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple plugin that allows you to preview meta tag data in a styled Google and Facebook link preview. You can bind the preview to inputs to get live preview while editing perfect for blog and CMS applications.",
   "main": "js/jquery-seopreview.js",
   "scripts": {
