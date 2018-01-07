@@ -5,7 +5,7 @@
  * A simple plugin that allows you to preview meta tag data in a styled Google and Facebook link preview.
  *
  * Copyright 2018, Wynter Jones
- * https://www.monetizedesign.com/
+ * https://www.monetizedesign.com/js-seopreview
  *
  * Licensed under the MIT license:
  * https://opensource.org/licenses/MIT
@@ -17,10 +17,12 @@
 (function ($) {
     "use strict";
 
-    $.fn.seoPreview = function (options) {
+     $.extend({ seoPreview: function (options) {
 
-        // Options
-        var settings = $.extend({
+        // Defults 
+        var defaults = {
+            google_div: "#seopreview-google",
+            facebook_div: "#seopreview-facebook",
             metadata: {
                 title: "MonetizeDesign - SEO Live Preview jQuery Plugin",
                 desc: "The jQuery SEO Preview Plugin is a simple plugin that allows you to preview meta tag data in a styled Google and Facebook link preview. You can bind the preview to inputs for live editing perfect for blog and CMS applications when you need to edit social meta data.",
@@ -32,12 +34,17 @@
                 }
             },
             google: {
+                show: true,
                 date: true
             },
             facebook: {
+                show: true,
                 featured_image: ""
             }
-        }, options);
+        }
+
+        // Options
+        var settings = $.extend(true, defaults, options);
 
         // Function: Turncate Meta Data
         function truncate(original_text, limit) {
@@ -106,6 +113,8 @@
         var google_date;
         if (settings.google.date === true) {
             google_date = "<span id='js-seo-preview__google-date'>" + todaysDate() + " - </span>";
+        } else {
+            google_date = "";
         }
 
         // Bind for Title, Desc <input> <textarea> on Keyup
@@ -192,14 +201,29 @@
 
         // Make: Final HTML Output
         var output = "";
-        output = "<div id='js-seo-preview' class='md-js-cleanslate'>";
-        output += google_box;
-        output += facebook_box;
+        output = "<div class='js-seo-preview md-js-cleanslate'>";
+        if (settings.google.show == true) {
+            output += google_box;
+        }
         output += "</div>";
 
-        // Add Preview to Page
-        return this.html(output);
+        var fb_output = "";
+        fb_output = "<div class='js-seo-preview md-js-cleanslate'>";
+        if (settings.facebook.show == true) {
+            fb_output += facebook_box;
+        }
+        fb_output += "</div>";
 
-    };
+        
+        // Add Preview to Page
+        if ($(settings.google_div).length) {
+            $(settings.google_div).html(output);
+        }
+        if ($(settings.facebook_div).length) {
+            $(settings.facebook_div).html(fb_output);
+        }
+        return false;
+
+    }});
 
 }(jQuery));

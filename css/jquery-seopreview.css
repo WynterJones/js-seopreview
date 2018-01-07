@@ -5,18 +5,14 @@
  * A simple plugin that allows you to preview meta tag data in a styled Google and Facebook link preview.
  *
  * Copyright 2018, Wynter Jones
- * https://www.monetizedesign.com/
+ * https://www.monetizedesign.com/js-seopreview
  *
  * Licensed under the MIT license:
  * https://opensource.org/licenses/MIT
+ *
 */
 
-/*
-* Note: Using BEM style classes with CSS Cleanslate to ensure styles do not interfere with your app,
-*       all styles must include: !important - also using > for better specificity.
-*/
-
-div#js-seo-preview {
+div.js-seo-preview {
   display: flex !important;
   -webkit-flex-direction: column !important;
   -ms-flex-direction: column !important;
@@ -29,13 +25,13 @@ div#js-seo-preview {
 /* Google */
 /* Last Updated: January 2018 */
 
-div#js-seo-preview > div#js-seo-preview__google-inner {
+div.js-seo-preview > div#js-seo-preview__google-inner {
   max-width: 600px !important;
   line-height: 18.2px !important;
   margin-bottom: 1rem !important;
 }
 
-div#js-seo-preview.md-js-cleanslate > div#js-seo-preview__google-inner > span#js-seo-preview__google-title {
+div.js-seo-preview > div#js-seo-preview__google-inner > span#js-seo-preview__google-title {
   display: block !important;
   color: rgb(26, 13, 171) !important;
   font-family: arial, sans-serif !important;
@@ -51,7 +47,7 @@ div#js-seo-preview.md-js-cleanslate > div#js-seo-preview__google-inner > span#js
   margin-bottom: 1px !important;
 }
 
-div#js-seo-preview.md-js-cleanslate > div#js-seo-preview__google-inner > span#js-seo-preview__google-url {
+div.js-seo-preview > div#js-seo-preview__google-inner > span#js-seo-preview__google-url {
   display: block !important;
   color: rgb(0, 102, 33) !important;
   font-family: arial, sans-serif !important;
@@ -65,7 +61,7 @@ div#js-seo-preview.md-js-cleanslate > div#js-seo-preview__google-inner > span#js
   width: auto !important;
 }
 
-div#js-seo-preview.md-js-cleanslate > div#js-seo-preview__google-inner > span#js-seo-preview__google-desc {
+div.js-seo-preview > div#js-seo-preview__google-inner > span#js-seo-preview__google-desc {
   display: block !important;
   color: #545454 !important;
   font-family: arial, sans-serif !important;
@@ -81,14 +77,14 @@ div#js-seo-preview.md-js-cleanslate > div#js-seo-preview__google-inner > span#js
   text-overflow: ellipsis !important;
 }
 
-div#js-seo-preview.md-js-cleanslate > div#js-seo-preview__google-inner > span#js-seo-preview__google-desc > span#js-seo-preview__google-date {
+div.js-seo-preview > div#js-seo-preview__google-inner > span#js-seo-preview__google-desc > span#js-seo-preview__google-date {
   color: #808080 !important;
 }
 
 /* Facebook */
 /* Last Updated: January 2018 */
 
-div#js-seo-preview > div#js-seo-preview__facebook-inner {
+div.js-seo-preview > div#js-seo-preview__facebook-inner {
   max-width: 526px !important;
   line-height: 16.08px !important;
   font-family:Helvetica, Arial, sans-serif !important;
@@ -102,16 +98,16 @@ div#js-seo-preview > div#js-seo-preview__facebook-inner {
   margin-bottom: 1rem !important;
 }
 
-div#js-seo-preview.md-js-cleanslate > div#js-seo-preview__facebook-inner > img#js-seo-preview__facebook-image {
+div.js-seo-preview > div#js-seo-preview__facebook-inner > img#js-seo-preview__facebook-image {
   width: 100% !important;
   max-height: 315px !important;
 }
 
-div#js-seo-preview.md-js-cleanslate > div#js-seo-preview__facebook-inner > div#js-seo-preview__facebook-inner-text {
+div.js-seo-preview > div#js-seo-preview__facebook-inner > div#js-seo-preview__facebook-inner-text {
   padding: 10px 12px !important;
 }
 
-div#js-seo-preview.md-js-cleanslate > div#js-seo-preview__facebook-inner > div#js-seo-preview__facebook-inner-text > span#js-seo-preview__facebook-title {
+div.js-seo-preview > div#js-seo-preview__facebook-inner > div#js-seo-preview__facebook-inner-text > span#js-seo-preview__facebook-title {
   max-width: max-content !important;
   text-decoration: none !important;
     transition: color .1s ease-in-out !important;
@@ -123,7 +119,7 @@ div#js-seo-preview.md-js-cleanslate > div#js-seo-preview__facebook-inner > div#j
   margin-bottom: 5px !important;
 }
 
-div#js-seo-preview.md-js-cleanslate > div#js-seo-preview__facebook-inner > div#js-seo-preview__facebook-inner-text > span#js-seo-preview__facebook-url {
+div.js-seo-preview > div#js-seo-preview__facebook-inner > div#js-seo-preview__facebook-inner-text > span#js-seo-preview__facebook-url {
   max-width: max-content !important;
   text-decoration: none !important;
     transition: color .1s ease-in-out !important;
@@ -137,7 +133,7 @@ div#js-seo-preview.md-js-cleanslate > div#js-seo-preview__facebook-inner > div#j
   color: #90949c !important;
 }
 
-div#js-seo-preview.md-js-cleanslate > div#js-seo-preview__facebook-inner > div#js-seo-preview__facebook-inner-text > span#js-seo-preview__facebook-desc {
+div.js-seo-preview > div#js-seo-preview__facebook-inner > div#js-seo-preview__facebook-inner-text > span#js-seo-preview__facebook-desc {
   max-width: max-content !important;
    max-width: max-content !important;
   text-decoration: none !important;

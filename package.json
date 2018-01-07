@@ -14,16 +14,16 @@
     "jquery",
     "seo",
     "preview",
-    "seo",
-    "live",
-    "preview",
-    "link",
-    "preview"
+    "meta data"
   ],
   "author": "MonetizeDesign",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/monetizedesign/js-seopreview/issues"
   },
-  "homepage": "https://github.com/monetizedesign/js-seopreview"
+  "homepage": "https://github.com/monetizedesign/js-seopreview",
+  "ecosystem": "jquery",
+  "dependencies": {
+    "jquery": "^2.2.4"
+  }
 }
