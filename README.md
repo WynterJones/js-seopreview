@@ -23,9 +23,9 @@ Make sure to add the CSS styling for the preview dialog window in your head:
 
 _The styles included are default styles for the live SEO preview area only._
 
-##### Add via NPM
+#### Add via NPM
 
-  npm install js-seopreview
+    npm install js-seopreview
 
 * * *
 
