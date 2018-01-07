@@ -2,14 +2,9 @@
 
 ##### Version 1.0.0
 
-## <small>Preview Google and Facebook meta data like a _duck_ boss</small>
-
-
-* * *
+## Preview Google and Facebook meta data like a _duck_ boss
 
 A simple jquery plugin that allows you to preview Google and Facebook meta data binded to inputs for live real-time editing. Perfect for any blog post editing pages or when creating CMS applications.
-
-[Star](https://github.com/monetizedesign/js-seopreview)
 
 * * *
 
