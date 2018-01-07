@@ -1,7 +1,7 @@
 ![JS SEOPreview Logo](https://www.monetizedesign.com/plugins/jquery/seopreview/js-seopreview-logo.png)
 # JS SEOPreview
 
-##### Version 1.0.0
+##### Version 1.0.1
 
 ## Preview Google and Facebook meta data like a ~~duck~~  boss
 
