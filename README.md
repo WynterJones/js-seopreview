@@ -9,6 +9,8 @@ A simple jquery plugin that allows you to preview Google and Facebook meta data 
 
 [View Demo and Documentation](https://www.monetizedesign.com/js-seopreview)
 
+[![npm version](https://badge.fury.io/js/js-seopreview.svg)](https://badge.fury.io/js/js-seopreview)
+
 * * *
 
 ### Usage
@@ -25,7 +27,7 @@ _The styles included are default styles for the live SEO preview area only._
 
 ##### Add via NPM
 
-  npm install js-seopreview
+    npm install js-seopreview
 
 * * *
 
@@ -113,7 +115,7 @@ Explanation of the options available.
     Default is **true** and it will show the current date in Google description.
 
 *   `facebook.show` & `google.show`  
-    Default is **true** and it will show of hide the preview box.
+    Default is **true** and it will show or hide the preview box.
 
 **Note:** Character limits for the title, url and description are hard-coded into the plugin using the latest max length.
 
