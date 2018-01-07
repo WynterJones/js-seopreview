@@ -7,7 +7,7 @@
 
 A simple jquery plugin that allows you to preview Google and Facebook meta data binded to inputs for live real-time editing. Perfect for any blog post editing pages or when creating CMS applications.
 
-[View Demo and Documentation(https://www.monetizedesign.com/js-seopreview)
+[View Demo and Documentation](https://www.monetizedesign.com/js-seopreview)
 
 * * *
 
