@@ -1,4 +1,4 @@
-![JS SEOPreview Logo](https://www.monetizedesign.com/plugins/jquery/seopreview/js-seopreview-logo.png  =150x)
+<img src="https://www.monetizedesign.com/plugins/jquery/seopreview/js-seopreview-logo.png" width="100" />
 # JS SEOPreview
 
 ##### Version 1.0.1
