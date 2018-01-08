@@ -1,4 +1,4 @@
-<img src="https://www.monetizedesign.com/plugins/jquery/seopreview/js-seopreview-logo.png" width="100" />
+<img src="https://www.monetizedesign.com/plugins/jquery/seopreview/js-seopreview-logo-small.png" width="100" />
 
 # JS SEOPreview
 
